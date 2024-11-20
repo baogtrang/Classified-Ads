@@ -12,21 +12,41 @@ class App extends React.Component {
     age: 50,
   };
 
-  handleClick(event) {
+  handleClick = (event) => {
     console.log(">> Click me");
-    console.log("My name is, this.state.name");
-  }
+    //merge state => react class
+    this.setState({
+      name: "Trang",
+      age: Math.floor(Math.random() * 100 + 1),
+    });
+  };
 
   handleOnMouseOver(event) {
     console.log(event.pageX);
   }
 
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
+
+  handleOnSubmit = (event) => {
+    event.preventDefault()
+    alert("handleOnSubmit")
+  }
+
   render() {
     return (
       <div>
-        My name is {this.state.name} and I am from {this.state.address}
-        <button onMouseOver={this.handleOnMouseOver}>Hover me</button>
-        <button onClick={this.handleOnMouseOver}>Click me</button>
+        My name is {this.state.name} and I am {this.state.age}
+        <form onSubmit={(event) => this.handleOnSubmit(event)}>
+          <input
+            onChange={(event) => this.handleOnChangeInput(event)}
+            type='text'
+          />
+          <button>Submit</button>
+        </form>
       </div>
     );
   }
