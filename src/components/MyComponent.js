@@ -1,41 +1,18 @@
 import React from "react";
 import UserInfo from "./UserInfo";
+import DisplayInfo from "./DisplayInfo";
+
 class MyComponent extends React.Component {
-  state = {
-    name: "Bao",
-    address: "Mars",
-    age: 50,
-  };
-
-
-
-
-  handleOnChangeInput = (event) => {
-    //bad code
-    // this.state.age = event.target.value;
-    this.setState({
-      name: event.target.value,
-    });
-  };
-
-  handleOnChangeAge = (event) => {
-    this.setState({
-      age: event.target.value,
-    });
-  };
-
-  handleOnSubmit = (event) => {
-    event.preventDefault();
-    console.log(this.state);
-  }
-
   render() {
+    const myInfo = ["a", "b", "c"];
     return (
       <div>
-
-        <br />
-        <hr />
         <UserInfo />
+        <br />
+        <DisplayInfo name="Bao IT" age="30" />
+        <hr />
+        <DisplayInfo name="Bao IT" age={29} myInfor={myInfo} />
+
       </div>
     );
   }
