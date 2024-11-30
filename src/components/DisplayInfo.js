@@ -1,4 +1,6 @@
 import React from "react";
+import './DisplayInfo.scss';
+
 class DisplayInfo extends React.Component {
     state = {
         isShowUserList: true
@@ -9,10 +11,9 @@ class DisplayInfo extends React.Component {
         })
     }
     render() {
-
-        const { listUsers } = this.props;
+        const { userList } = this.props;
         return (
-            <div>
+            <div className="display-info-container">
                 <div>
                     <span onClick={() => { this.handleShowHide() }}>
                         {this.state.isShowUserList ? "Hide" : "Show"}
@@ -20,10 +21,10 @@ class DisplayInfo extends React.Component {
                 </div>
                 {this.state.isShowUserList &&
                     <div>
-                        {listUsers.map((user, index) => {
+                        {userList.map((user, index) => {
                             return (
-                                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
-                                    <div>My name is {user.name}</div>
+                                <div key={user.id} className={+user.age > 18 ? "green" : "pink"}>
+                                    <div style={{ color: "yellow", paddingTop: "50px" }}>My name is {user.name}</div>
                                     <div>I am {user.age} years old</div>
                                     <hr />
                                 </div>
@@ -32,7 +33,6 @@ class DisplayInfo extends React.Component {
                         }
                     </div>
                 }
-
             </div>
 
         )
