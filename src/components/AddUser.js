@@ -7,7 +7,7 @@ class AddUser extends React.Component {
         age: 50,
     };
 
-    handleOnChangeInput = (event) => {
+    handleOnChangeName = (event) => {
         this.setState({
             name: event.target.value,
         });
@@ -36,7 +36,7 @@ class AddUser extends React.Component {
                     <label>Your name: </label>
                     <input
                         value={this.state.name}
-                        onChange={(event) => this.handleOnChangeInput(event)}
+                        onChange={(event) => this.handleOnChangeName(event)}
                         type='text'
                     />
                     <label>Your age: </label>

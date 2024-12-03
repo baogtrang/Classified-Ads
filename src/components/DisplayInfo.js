@@ -1,5 +1,6 @@
 import React from "react";
-import './DisplayInfo.scss';
+import "./DisplayInfo.scss";
+import logo from "./../logo.svg";
 
 class DisplayInfo extends React.Component {
     state = {
@@ -20,18 +21,28 @@ class DisplayInfo extends React.Component {
                     </span>
                 </div>
                 {this.state.isShowUserList &&
-                    <div>
+                    <>
                         {userList.map((user, index) => {
+                            console.log('userList:', userList)
                             return (
-                                <div key={user.id} className={+user.age > 18 ? "green" : "pink"}>
-                                    <div style={{ color: "yellow", paddingTop: "50px" }}>My name is {user.name}</div>
-                                    <div>I am {user.age} years old</div>
+                                <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
+                                    <div>
+                                        <div >My name is {user.name}</div>
+                                        <div>I am {user.age} years old</div>
+                                    </div>
+                                    <div>
+                                        <button onClick={() => {
+                                            this.props.handleDeleteUser(user.id)
+                                        }}>
+                                            Delete
+                                        </button>
+                                    </div>
                                     <hr />
                                 </div>
                             )
                         })
                         }
-                    </div>
+                    </>
                 }
             </div>
 
