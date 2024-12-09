@@ -18,7 +18,7 @@ class MyComponent extends React.Component {
   handleDeleteUser = (userId) => {
     let userListClone = [...this.state.userList];
     userListClone = userListClone.filter(item => item.id !== userId);
-    this.setState({ userList: userListClone }); // Fix here
+    this.setState({ userList: userListClone });
   }
   render() {
     //DRY: Don't Repeat Yourself
