@@ -57,7 +57,7 @@ const DisplayInfo = (props) => {
         <div className="display-info-container">
             <div>
                 <span onClick={() => handleShowHideList()}>Show user list</span>
-                {isShowHideUserList ? "Hide" : "Show"}
+                {isShowHideUserList ? "Hide user list" : "Show user list"}
             </div>
             {isShowHideUserList &&
                 <>
