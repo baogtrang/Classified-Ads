@@ -1,6 +1,6 @@
-const Admin = (props) => {
+const Admins = (props) => {
     return (
         <div>Admin Component</div>
     )
 }
-export default Admin;
+export default Admins;
